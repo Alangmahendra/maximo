@@ -12,3 +12,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.bg{
+  background: url("kposhop.jpeg");
+  height:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover
+}
+.gradient {
+    background: #466368;
+    background: linear-gradient(to right bottom,#FEFEFE, #FEEDCF);
+    /* border-radius: 6px;
+    height: 120px; */
+}
+
+#fix{
+  position: fixed;
+    top: 30px;
+    right: 30px; 
+}
+
+.layer1{
+z-index: 0;
+position: absolute;
+width:100%
+}
+
+.layer2{
+z-index: 10;
+position: absolute;
+}
+
+Input[type="text"],Input[type="number"],Input[type="tel"],Input[type="datetime-local"],Input[type="email"],Input[type="select"]{
+  background-color: #FEEDCF;
+  color:#4a1419
+}
