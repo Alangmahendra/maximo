@@ -82,6 +82,8 @@ class ModalComponent extends Component {
                 case 'Sat':
                 result =  'Sabtu'
                 break;
+                default:
+                result = 'Senin'
             }
         this.setState({
             hari: result
