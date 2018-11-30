@@ -48,3 +48,9 @@ Input[type="text"],Input[type="number"],Input[type="tel"],Input[type="datetime-l
   background-color: #FEEDCF;
   color:#4a1419
 }
+
+.notifErr{
+  color: red;
+  font-size: 80%;
+  font-weight: bold;
+}

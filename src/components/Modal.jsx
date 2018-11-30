@@ -10,6 +10,8 @@ import DatePicker from 'react-date-picker'
 import TimePicker from 'react-time-picker'
 import {Field,reduxForm} from 'redux-form'
 import validate from './validate'
+import renderField from './defaultFieldInput'
+import telRenderField from './telFieldInput'
 
 class ModalComponent extends Component {
     constructor(props){
@@ -87,7 +89,7 @@ class ModalComponent extends Component {
     }
 
     componentDidMount(){
-        console.log('====>',this.state.tanggal)
+        // console.log('====>',this.state.tanggal)
     }
 
     submit = (e) =>{
@@ -98,8 +100,9 @@ class ModalComponent extends Component {
     }
 render() {
     const {nama,telepon,tanggal,lokasi,jumlah,konsumsi,email,hari,jam} = this.state
+    const { handleSubmit, pristine, reset, submitting } = this.props
     return (
-    <Form className="form"> 
+    <Form className="form" onSubmit={handleSubmit}> 
         <div className="clearfix fix">
         <Button outline color="warning" id="fix" onClick={this.toggle}  >Order Event</Button>
         </div>
@@ -115,73 +118,48 @@ render() {
         <ModalBody>
             <Row>
                 <Col>
-                <FormGroup>
-                <Label style={{color:"#4A1419"}}>
-                    Email
-                </Label>
-                <Input type="email"
+            <Field
                 name="email"
-                id="email"
+                type="email"
+                label="Email"
                 placeholder="zankpuremail@samsung.com"
-                onChange={this.handleOnChange}
-                value={email}
-                required={true}
-                />
-            </FormGroup>
+                component={renderField}
+            />
                 </Col>
             <Col>
-            <FormGroup>
-                <Label style={{color:"#4A1419"}}>
-                    Nama
-                </Label>
-                <Input type="text"
+            <Field
                 name="nama"
-                id="nama"
+                type="text"
+                label="Nama"
                 placeholder="Zank Purnama"
-                onChange={this.handleOnChange}
-                value={nama}
-                required
-                />
-            </FormGroup>
+                component={renderField}
+            />
             </Col>
             </Row>
             <Row>
             <Col>
-            <FormGroup>
-                <Label style={{color:"#4A1419"}}>
-                    Jumlah Peserta
-                </Label>
-                <Input
-                type="tel"
+            <Field
                 name="jumlah"
-                id="jumlah"
+                type="tel"
+                label="Jumlah Peserta"
                 placeholder="100"
-                onChange={this.handleOnChange}
-                value={jumlah}
                 mask="99999999999999999999"
                 maskChar={null}
+                component={telRenderField}
                 tag={InputMask}
-                required
-                />
-            </FormGroup>
+            />
             </Col>
             <Col>
-            <FormGroup>
-                <Label style={{color:"#4A1419"}}>
-                    No Telpon
-                </Label>
-                <Input type="tel"
+            <Field
                 name="telepon"
-                id="telepon"
-                mask="+6\2999 9999 99999"
-                maskChar=" "
-                tag={InputMask}
+                type="tel"
+                label="No Telpon"
                 placeholder="+62"
-                onChange={this.handleOnChange}
-                value={telepon}
-                required
-                />
-            </FormGroup>
+                mask="+6\2999 9999 99999"
+                maskChar={null}
+                component={telRenderField}
+                tag={InputMask}
+            />
             </Col>
             </Row>
             <Row>

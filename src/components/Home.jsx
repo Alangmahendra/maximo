@@ -5,7 +5,7 @@ render() {
     return (
     <div>
         <div className="layer1" >
-        <img style={{width:"100%",}} src={require('../kposhop.jpeg')}/>
+        <img style={{width:"100%",}} src={require('../kposhop.jpeg')} alt="maximo"/>
         </div>
         <div className="layer2">
             <Modal/>

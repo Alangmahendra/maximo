@@ -1,4 +1,4 @@
-const validate = () =>{
+const validate = values =>{
     const errors = {}
     if(!values.nama){
         errors.nama = 'Harus Di Isi!!'
@@ -18,6 +18,7 @@ const validate = () =>{
     if(!values.konsumsi){
         errors.konsumsi = 'Harus Di Isi!!'
     }
+    return errors
 }
 
 export default validate 
